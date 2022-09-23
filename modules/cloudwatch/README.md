@@ -6,7 +6,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.31.0 |
 
 ## Modules
 
@@ -24,11 +24,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cloudwatch_event_name"></a> [cloudwatch\_event\_name](#input\_cloudwatch\_event\_name) | The name of the Cloudwatch event. | `any` | n/a | yes |
-| <a name="input_cron"></a> [cron](#input\_cron) | The cron job specification. | `any` | n/a | yes |
-| <a name="input_lambda_function_arn"></a> [lambda\_function\_arn](#input\_lambda\_function\_arn) | The lambda function arn. To be genrated automatically from the lambda module | `any` | n/a | yes |
-| <a name="input_lambda_function_name"></a> [lambda\_function\_name](#input\_lambda\_function\_name) | The lambda function name. To be genrated automatically from the lambda module | `any` | n/a | yes |
-| <a name="input_target_id"></a> [target\_id](#input\_target\_id) | The Id of the cloudwatch target. | `any` | n/a | yes |
+| <a name="input_cloudwatch_event_name"></a> [cloudwatch\_event\_name](#input\_cloudwatch\_event\_name) | The name of the Cloudwatch event. | `string` | n/a | yes |
+| <a name="input_cron"></a> [cron](#input\_cron) | The cron job specification. | `string` | n/a | yes |
+| <a name="input_lambda_function_arn"></a> [lambda\_function\_arn](#input\_lambda\_function\_arn) | The lambda function arn. To be genrated automatically from the lambda module | `string` | n/a | yes |
+| <a name="input_lambda_function_name"></a> [lambda\_function\_name](#input\_lambda\_function\_name) | The lambda function name. To be genrated automatically from the lambda module | `string` | n/a | yes |
+| <a name="input_target_id"></a> [target\_id](#input\_target\_id) | The Id of the cloudwatch target. | `string` | n/a | yes |
 
 ## Outputs
 
