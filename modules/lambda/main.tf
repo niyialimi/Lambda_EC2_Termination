@@ -69,7 +69,7 @@ data "archive_file" "zip_python_code" {
 
 #==== The lambda function ====#
 resource "aws_lambda_function" "ec2_terminate_lambda" {
-  filename      = "${path.module}/${var.output_path}"
+  filename      = data.archive_file.zip_python_code.output_path
   function_name = var.lambda_name
   description   = "Lambda function to terminate EC2 instances"
   role          = aws_iam_role.lambda_role.arn
@@ -77,8 +77,8 @@ resource "aws_lambda_function" "ec2_terminate_lambda" {
   runtime       = var.runtime
   environment {
     variables = {
-      environment = "${var.environment}"
-      owner       = "${var.owner}"
+      environment = var.environment
+      owner       = var.owner
     }
   }
   depends_on = [
