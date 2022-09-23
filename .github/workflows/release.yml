@@ -23,9 +23,7 @@ jobs:
         with:
           semantic_version: 18.0.0
           extra_plugins: |
-            @semantic-release/commit-analyzer
             @semantic-release/changelog@5.0.1
-            @semantic-release/github
             @semantic-release/git
 
           branches: |
