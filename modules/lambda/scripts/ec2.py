@@ -27,5 +27,5 @@ def lambda_handler(event, context):
     for instance in running_instances:
         instance_id = instance.id
         ec2_client.terminate_instances(InstanceIds=[instance_id])
-    
+
     return "success"

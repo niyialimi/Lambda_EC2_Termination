@@ -23,10 +23,10 @@ POLICY
 
 #==== Creating IAM Policy for the lambda function =====#
 resource "aws_iam_policy" "lambda_policy" {
-  name               = "${var.lambda_name}_policy"
+  name        = "${var.lambda_name}_policy"
   path        = "/"
-  description  = "AWS IAM Policy for managing aws lambda role"
-  policy = <<POLICY
+  description = "AWS IAM Policy for managing aws lambda role"
+  policy      = <<POLICY
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -62,26 +62,26 @@ resource "aws_iam_role_policy_attachment" "attach_lambda_policy" {
 
 #==== Archiving the lambda function code ====#
 data "archive_file" "zip_python_code" {
-type        = "zip"
-source_file  = "${path.module}/${var.source_file}"
-output_path = "${path.module}/${var.output_path}"
+  type        = "zip"
+  source_file = "${path.module}/${var.source_file}"
+  output_path = "${path.module}/${var.output_path}"
 }
 
 #==== The lambda function ====#
 resource "aws_lambda_function" "ec2_terminate_lambda" {
-  filename                       = "${path.module}/${var.output_path}"
-  function_name                  = var.lambda_name
-  description = "Lambda function to terminate EC2 instances"
-  role                           = aws_iam_role.lambda_role.arn
-  handler                        = var.handler
-  runtime                        = var.runtime
+  filename      = "${path.module}/${var.output_path}"
+  function_name = var.lambda_name
+  description   = "Lambda function to terminate EC2 instances"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = var.handler
+  runtime       = var.runtime
   environment {
     variables = {
       environment = "${var.environment}"
-      owner = "${var.owner}"
+      owner       = "${var.owner}"
     }
   }
-  depends_on                     = [
+  depends_on = [
     aws_iam_role_policy_attachment.attach_lambda_policy
-    ]
+  ]
 }
